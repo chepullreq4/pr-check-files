@@ -67,5 +67,3 @@ commands:
           }
         ]
       }
-attributes:
-  persistVolumes: false
