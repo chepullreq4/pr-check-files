@@ -1,0 +1,13 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: pr-che_theia-1192-
+projects:
+- name: pr-1192
+  source:
+    type: git
+    location: 'https://github.com/benoitf/che-theia.git'
+    branch: 'issue-redirect'
+components:
+- reference: https://raw.githubusercontent.com/chepullreq4/pr-check-files/master/che-theia/pr-1192/simple/che-theia-editor.yaml
+  type: cheEditor
+
