@@ -5,14 +5,16 @@ projects:
 - name: console-java-simple
   source:
     type: git
-    location: https://github.com/che-samples/console-java-simple.git
+    location: https://github.com/che-samples/console-java-simple
     branch: java1.11
 components:
 - type: chePlugin
-  id: redhat/java11/latest
+  id: redhat/java/latest
+  preferences:
+    java.server.launchMode: Standard
 - type: dockerimage
   alias: maven
-  image: quay.io/eclipse/che-java11-maven:nightly
+  image: quay.io/eclipse/che-java11-maven:next
   env:
   - name: MAVEN_CONFIG
     value: ""
@@ -33,6 +35,11 @@ components:
   volumes:
   - name: m2
     containerPath: /home/user/.m2
+  endpoints:
+  - name: debug
+    port: 5005
+    attributes:
+      public: "false"
 - reference: https://raw.githubusercontent.com/chepullreq4/pr-check-files/master/che-theia/pr-847/simple/che-theia-editor.yaml
   type: cheEditor
 commands:
@@ -48,5 +55,3 @@ commands:
     component: maven
     command: mvn clean install && java -jar ./target/*.jar
     workdir: ${CHE_PROJECTS_ROOT}/console-java-simple
-attributes:
-  persistVolumes: "false"
