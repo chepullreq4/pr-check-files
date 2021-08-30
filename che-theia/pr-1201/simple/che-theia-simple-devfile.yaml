@@ -1,0 +1,13 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: pr-che_theia-1201-
+projects:
+- name: pr-1201
+  source:
+    type: git
+    location: 'https://github.com/mtsmfm/che-theia.git'
+    branch: 'ctrl-p'
+components:
+- reference: https://raw.githubusercontent.com/chepullreq4/pr-check-files/master/che-theia/pr-1201/simple/che-theia-editor.yaml
+  type: cheEditor
+
