@@ -7,6 +7,7 @@ projects:
     source:
       type: git
       location: "https://github.com/spring-projects/spring-petclinic.git"
+      commitId: e7c879ed3abe10e446ff103887ad665ca6acf04e
 components:
   - type: cheEditor
     alias: che-theia
@@ -28,11 +29,18 @@ components:
       app.kubernetes.io/component: database
   - type: dockerimage
     alias: maven-container
-    image: quay.io/eclipse/happy-path:nightly
+    image: quay.io/eclipse/happy-path:next
     env:
       - name: MAVEN_CONFIG
         value: /home/user/.m2
     memoryLimit: 1500Mi
+    endpoints:
+      - name: '8080-tcp'
+        port: 8080
+      - name: 'debug'
+        port: 5005
+        attributes:
+          public: 'false'
     mountSources: true
   - type: chePlugin
     id: redhat/java/latest
