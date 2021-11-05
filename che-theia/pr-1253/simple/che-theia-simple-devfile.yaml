@@ -1,0 +1,13 @@
+apiVersion: 1.0.0
+metadata:
+  generateName: pr-che_theia-1253-
+projects:
+- name: pr-1253
+  source:
+    type: git
+    location: 'https://github.com/benoitf/che-theia.git'
+    branch: 'bump-happy-path-tests'
+components:
+- reference: https://raw.githubusercontent.com/chepullreq4/pr-check-files/master/che-theia/pr-1253/simple/che-theia-editor.yaml
+  type: cheEditor
+
